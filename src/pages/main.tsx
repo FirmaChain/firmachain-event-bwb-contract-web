@@ -77,7 +77,7 @@ const Main = ({ setLoading }: IProps) => {
       await axios.post(`${process.env.REACT_APP_API_HOST}/contracts`, {
         name: t('userName'),
         address,
-        phone: process.env.REACT_APP_PHONE,
+        phone,
       });
     } catch (e) {
       console.log(e);
