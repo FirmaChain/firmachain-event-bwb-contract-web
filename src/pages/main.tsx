@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import queryString from 'query-string';
 import axios from 'axios';
 
 import Header from '../components/header';
@@ -44,9 +45,27 @@ const Main = ({ setLoading }: IProps) => {
   const [signer, setSigner] = useState('');
   const [timerText, setTimerText] = useState('00:00');
   const [isRefresh, setRefresh] = useState(false);
+  const [phone, setPhone] = useState('');
 
   useEffect(() => {
     setLanguage('kr');
+    const qs = queryString.parse(window.location.search);
+
+    if (qs.p === undefined) {
+      setPhone(process.env.REACT_APP_PHONE1!);
+    } else {
+      switch (qs.p) {
+        case '1':
+          setPhone(process.env.REACT_APP_PHONE1!);
+          break;
+        case '2':
+          setPhone(process.env.REACT_APP_PHONE2!);
+          break;
+        case '3':
+          setPhone(process.env.REACT_APP_PHONE3!);
+          break;
+      }
+    }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onClickStartButton = () => {
