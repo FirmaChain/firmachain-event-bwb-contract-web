@@ -1,12 +1,21 @@
 import React from 'react';
-import { HeaderContainer, Wrapper } from './styles';
+import { HeaderContainer, Wrapper, Exit } from './styles';
 
 interface IProps {
   isActive: boolean;
+  setStep: (step: number) => void;
 }
 
-const Header = ({ isActive }: IProps) => {
-  return <HeaderContainer>{isActive && <Wrapper></Wrapper>}</HeaderContainer>;
+const Header = ({ isActive, setStep }: IProps) => {
+  return (
+    <HeaderContainer>
+      {isActive && (
+        <Wrapper>
+          <Exit onClick={() => setStep(0)} />
+        </Wrapper>
+      )}
+    </HeaderContainer>
+  );
 };
 
 export default React.memo(Header);

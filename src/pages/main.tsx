@@ -110,7 +110,7 @@ const Main = ({ setLoading }: IProps) => {
   return (
     <MainContainer>
       <LoginFade text1={`${signer} ${t('loginText1')}`} text2={t('loginText2')} isActive={isActiveLoginFade} />
-      <Header isActive={currentStep > 0} />
+      <Header isActive={currentStep > 0} setStep={setStep} />
       <ContentsContainer>
         <StepWrapper currentStep={currentStep}>
           <Step>

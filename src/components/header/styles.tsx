@@ -19,3 +19,11 @@ export const Wrapper = styled.div`
   color: #ddd;
   font-size: 2.8rem;
 `;
+
+export const Exit = styled.div`
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
